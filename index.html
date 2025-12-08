@@ -7,6 +7,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -18,6 +21,7 @@
             --primary-color: #ffff;
             --text-dark: #fffffff4;
             --bg-light: #4934ff;
+            --border: #ff784f
         }
 
         body {
@@ -33,7 +37,7 @@
             max-width: 1400px;
             margin: 0 auto;
             padding: 3rem;
-            border: 1px solid var(--text-dark);
+            border: 1px solid var(--border);
             background-color: var(--bg-light);
             min-height: calc(100vh - 4rem);
         }
@@ -57,6 +61,7 @@
         }
 
         h1 {
+            font-family: "Abril Fatface", serif;
             font-size: 3rem;
             font-weight: 400;
             margin: 0;
@@ -64,6 +69,7 @@
         }
 
         h2 {
+            font-family: "Abril Fatface", serif;
             font-size: 1.5rem;
             font-weight: 400;
             margin: 0;
@@ -161,6 +167,17 @@
             .container {
                 padding: 1.5rem;
                 min-height: calc(100vh - 2rem);
+                display: flex;
+                flex-direction: column;
+            }
+
+            /* Reorder sections on mobile */
+            .hero-section {
+                order: 1;
+            }
+
+            .header-section {
+                order: 2;
             }
 
             .grid {
@@ -184,6 +201,38 @@
                 text-align: left;
             }
         }
+        .rsvp-button {
+            display: block;
+            width: 100%;
+            max-width: 700px;
+            padding: 1rem 2rem;
+            background-color: var(--border);
+            color: var(--text-dark);
+            text-decoration: none;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            transition: box-shadow 0.3s ease, transform 0.2s ease;
+            font-weight: 500;
+            text-align: center;
+            }
+
+
+        .rsvp-button:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+            transform: translateY(-2px);
+        }
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.02);
+            }
+        }
+
+        .rsvp-button {
+            animation: pulse 2s ease-in-out infinite;
+        }
     </style>
 </head>
 <body>
@@ -191,11 +240,13 @@
     <!-- Header -->
     <div class="grid">
         <div class="col-9">
-            <h1>Emily Chen &<br>Tigran Demurjian</h1>
+            <h1>EMILY & TIGRAN <br></h1>
+            <h2>are getting married</h2>
         </div>
         <div class="col-3">
             <div class="text-right">
-                08—28—2026<br>
+                August 28th, 2026<br>
+                Pescadero, California<br>
                 11:00 AM
             </div>
         </div>
@@ -206,32 +257,26 @@
     <!-- Hero Section -->
     <div class="grid">
         <div class="col-5">
-            <img src="https://github.com/kirataran/emilytigran.party/blob/d72cf36353826ae393eec1815aa96749ec00cd3f/cake_proofs-14.jpg" alt="Emily and Tigran and Cosmo" class="hero-image">
+            <img src="cake_1.jpg" alt="Emily, Tigran, and Cosmo" class="hero-image">
         </div>
         <div class="col-7">
-            <div class="text-right">
-                <h2>You're Invited<br><br>A Wedding Celebration</h2>
-                <div class="spacer-md"></div>
-                <div class="countdown" id="countdown">
+                <!--<div class="countdown" id="countdown">
                     <span id="days">000</span> days
                     <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
-                </div>
-            </div>
+                </div>-->
         </div>
     </div>
 
-    <div class="spacer-lg"></div>
 
     <!-- Welcome -->
     <div class="grid">
         <div class="col-3"></div>
-        <div class="col-9">
-            <p>It's finally happening. And you're invited, because you're very special to us.</p>
-            <p>blah blah</p>
+        <div class="col-9" style="max-width: 700px;">
+            <p>We met in an Uber Pool six years ago, and now we're tying the knot. We'd be honored to have you celebrate this moment with us.</p>
+            <a href="YOUR_RSVP_LINK_HERE" target="_blank" class="rsvp-button">I'll be there!</a>
         </div>
     </div>
 
-    <div class="spacer-lg"></div>
 
     <!-- Schedule Section -->
     <div class="grid section" onclick="toggleSection(this)">
@@ -241,8 +286,8 @@
             <div class="section-content">
                 <div class="schedule-item">
                     <h3>Thursday, August 27, 2026</h3>
-                    <p><strong>7:00 PM — Welcome Dinner</strong><br>
-                    Join us for a casual welcome dinner at [Restaurant Name]. Come hungry and ready to mingle!</p>
+                    <p><strong>6:00 PM — Welcome BBQ and Pool Party</strong><br>
+                    Join us for a casual BBQ at the Venture Retreat Center. Come hungry and ready to mingle!</p>
                 </div>
                 <div class="schedule-item">
                     <h3>Friday, August 28, 2026</h3>
@@ -250,30 +295,15 @@
                     [Venue Name and Address]<br>
                     Please arrive 15 minutes early.</p>
                     
-                    <p><strong>12:30 PM — Cocktail Hour</strong><br>
-                    Enjoy drinks and appetizers while we take photos.</p>
+                    <p><strong>12:30 PM — Reception</strong><br>
+                    What's a wedding without food and drink?</p>
                     
-                    <p><strong>2:00 PM — Reception</strong><br>
-                    Dinner, dancing, and celebration!</p>
+                    <p><strong>2:00 PM — Free time</strong><br>
+                    TBD TBD TBD</p>
                     
                     <p><strong>6:00 PM — After Party</strong><br>
-                    For those who want to keep the party going!</p>
+                    TBD TBD TBD</p>
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="spacer-lg"></div>
-
-    <!-- RSVP Section -->
-    <div class="grid section" onclick="toggleSection(this)">
-        <div class="col-3"></div>
-        <div class="col-9">
-            <h2>RSVP</h2>
-            <div class="section-content">
-                <p>Please RSVP by July 1, 2026</p>
-                <iframe data-tally-src="https://tally.so/embed/Gxeqqe?alignLeft=1&dynamicHeight=1" loading="lazy" width="100%" height="1712" frameborder="0" marginheight="0" marginwidth="0" title="RSVP to Emily & Tigran's Wedding Retreat"></iframe>
-<script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
             </div>
         </div>
     </div>
@@ -284,31 +314,23 @@
     <div class="grid section" onclick="toggleSection(this)">
         <div class="col-3"></div>
         <div class="col-9">
-            <h2>Frequently Asked Questions</h2>
+            <h2>What You Might Want to Know</h2>
             <div class="section-content">
                 <div class="faq-item">
                     <h3>What should I wear?</h3>
-                    <p>Semi-formal attire. Think cocktail dresses and suits. We want you to be comfortable and feel great!</p>
+                    <p>Semi-formal attire you can dance in. Granola or Western-themed touches, or even full on cowboy, are encouraged.</p>
                 </div>
                 <div class="faq-item">
-                    <h3>Can I bring a plus-one?</h3>
-                    <p>If your invitation includes a plus-one, their name will be listed. If you have questions, please reach out to us directly.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>Where should I stay?</h3>
-                    <p>We have room blocks at [Hotel Name] and [Hotel Name]. Booking information can be found in your invitation.</p>
+                    <h3>Are we going to be camping?</h3>
+                    <p>The bride and groom will be staying in a cabin at the venue. If you're interested in camping with us, just let us know in the RSVP! Otherwise, check out the other lodging options in the RSVP.</p>
                 </div>
                 <div class="faq-item">
                     <h3>Will there be parking?</h3>
-                    <p>Yes! Free parking is available at the venue. Valet service will also be provided.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>Are kids welcome?</h3>
-                    <p>We love your little ones, but we've decided to keep our wedding an adults-only celebration.</p>
+                    <p>Yes! Free parking is available at the venue.</p>
                 </div>
                 <div class="faq-item">
                     <h3>What's on the menu?</h3>
-                    <p>We'll be serving a delicious dinner with vegetarian and vegan options. Please let us know about any dietary restrictions in your RSVP.</p>
+                    <p>TBD TBD</p>
                 </div>
             </div>
         </div>
